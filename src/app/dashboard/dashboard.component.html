@@ -1,0 +1,84 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>PawRun</span>
+    <span class="spacer"></span>
+    <button mat-raised-button [matMenuTriggerFor]="menu">Konto</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Wyloguj</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+  <mat-tab label="Postęp">
+    <h2 class="center">Dzienne:</h2>
+    <div *ngIf="chart">
+      <canvas #daily id="canvas" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;">{{ chart }}</canvas>
+    </div>
+    <h2 class="center">Tygodniowe:</h2>
+    <div *ngIf="chart">
+      <canvas #weekly id="canvas" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;">{{ chart }}</canvas>
+    </div>
+    <h2 class="center">Miesięczne:</h2>
+    <div *ngIf="chart">
+      <canvas #monthly id="canvas" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;">{{ chart }}</canvas>
+    </div>
+  </mat-tab>
+  <mat-tab label="Historia">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Chodzenie
+          </mat-panel-title>
+          <mat-panel-description>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let img of contentWalk">
+          <img [src]="'data:image/png;base64,'+img.contentstring" class="history-image" />
+          <mat-divider></mat-divider>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Bieganie
+          </mat-panel-title>
+          <mat-panel-description>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let img of contentRun">
+          <img [src]="'data:image/png;base64,'+img.contentstring" class="history-image" />
+          <mat-divider></mat-divider>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Rower
+          </mat-panel-title>
+          <mat-panel-description>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let img of contentBike">
+          <img [src]="'data:image/png;base64,'+img.contentstring" class="history-image" />
+          <mat-divider></mat-divider>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-tab>
+</mat-tab-group>

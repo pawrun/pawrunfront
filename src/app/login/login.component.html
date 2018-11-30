@@ -1,0 +1,16 @@
+<div class="content-box">
+  <div class="login-box">
+    <img src="assets/logo.png" alt="NoiseDETECTOR logo" class="logo">
+    <form class="example-form">
+      <mat-form-field class="full-width">
+        <input [(ngModel)]="inputEmail" name="username" matInput placeholder="E-mail" value="" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input [(ngModel)]="inputPassword" type="password" name="password" matInput placeholder="Password" value=""
+          autocomplete="off">
+      </mat-form-field>
+      <button (click)="attemptLogin()" mat-raised-button color="primary">Zaloguj</button>
+    </form>
+    <a routerLink="/registration"><button mat-button color="warn">Zarejestruj się</button></a>
+  </div>
+</div>

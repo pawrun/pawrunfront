@@ -1,0 +1,24 @@
+.center {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.right {
+  float: right;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.history-image {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: auto;
+}
